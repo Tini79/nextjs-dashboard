@@ -1,7 +1,9 @@
 'use server' // kita bikin server action di sini
 
+import { signIn } from '@/auth';
 import { sql } from '@vercel/postgres';
 import { z } from 'Zod'
+import { AuthError } from 'next-auth';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
@@ -133,4 +135,24 @@ export async function deleteInvoice(id: string) {
   }
 
   revalidatePath('/dashboard/invoices')
+}
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData
+) {
+  try {
+    console.log('dooo');
+    await signIn()
+    console.log('auteticate on server');
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialSignin':
+          return 'Invalid credentials';
+        default:
+          return 'Something went wrong'
+      }
+    }
+  }
 }
