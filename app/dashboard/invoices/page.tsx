@@ -6,6 +6,14 @@ import { lusitana } from '@/app/ui/fonts'
 import { InvoicesTableSkeleton } from '@/app/ui/skeletons'
 import { Suspense } from 'react'
 import { fetchInvoicesPages } from '@/app/lib/data'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  // assigning metadata title for every page
+  // title: 'Invoices | Acme Dashboard'
+  // ngirim title doang ke file layout.tsx root
+  title: 'Invoices',
+}
 
 export default async function Invoices({ searchParams }: { searchParams?: { query?: string, page?: string } }) {
   // return <p>Invoices Page</p>;

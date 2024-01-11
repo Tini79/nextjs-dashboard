@@ -1,4 +1,12 @@
 import SideNav from '@/app/ui/dashboard/sidenav';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  // assigning metadata title for every page
+  //   title: 'Invoices | Acme Dashboard'
+  // ngirim title doang ke file layout.tsx root
+  title: 'Dashboard'
+}
 
 export default function DashboardLayout({children}: {children:React.ReactNode}) {
 return (
