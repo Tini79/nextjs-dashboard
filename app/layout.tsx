@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
   // page" tertentu aja
   title: {
-    template: '%s | Acme Dashboard', // %s > bakalan terreplace oleh spesific page title <cek invoices>
+    template: '%s | Acme Dashboard', // %s > bakalan ter-replace oleh spesific page title <cek invoices>
     default: 'Acme Dashboard'
   },
   description: 'The official Next.js Course Dashboard, built with App Router.',
